@@ -2,7 +2,6 @@ var gulp 			= require('gulp'),
 	autoprefixer 	= require('gulp-autoprefixer'),
 	browserSync  	= require('browser-sync').create(),
 	rename 			= require('gulp-rename'),
-	pump 			= require('pump'),
 	gcmq 			= require('gulp-group-css-media-queries'),
 	cleanCSS 		= require('gulp-clean-css');
 	var plumber = require('gulp-plumber');
