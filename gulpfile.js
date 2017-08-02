@@ -6,7 +6,8 @@ var gulp 				= require('gulp'),
 	cleanCSS 			= require('gulp-clean-css'),
 	plumber 			= require('gulp-plumber'),
 	stylus 				= require('gulp-stylus'),
-	uglify 				= require('gulp-uglify');
+	uglify 				= require('gulp-uglify'),
+	babel 				= require('gulp-babel');
 
 
 
