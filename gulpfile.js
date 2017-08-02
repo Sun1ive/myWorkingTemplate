@@ -24,6 +24,12 @@ gulp.task('stylus', function () {
 	.pipe(plumber())
   .pipe(stylus())
 	.pipe(gcmq())
+	.pipe(autoprefixer({
+            browsers: ['last 15 versions'],
+            cascade: false
+        }))
+	// .pipe(cleanCSS())
+	.pipe(rename({suffix: '.min', prefix : ''}))
 	.pipe(gulp.dest("./_styles/"))
 	.pipe(browserSync.stream());
 });
@@ -31,31 +37,19 @@ gulp.task('stylus', function () {
 
 gulp.task('watch', function () {
 	gulp.watch("./_styles/*.styl", ["stylus"]);
-	gulp.watch("./_styles/style.mis.css").on('change', browserSync.reload);
 	gulp.watch('./*.html').on('change', browserSync.reload);
 	gulp.watch('./_scripts/*.js').on("change", browserSync.reload);
 
 });
 
-gulp.task('default', ['browser-sync', 'watch', 'build']);
-
-
-
-gulp.task("build", /*['uglify'],*/ () => {
-	return gulp.src("./_styles/style.css")
-	// .pipe(gcmq())
-	.pipe(autoprefixer({
-            browsers: ['last 15 versions'],
-            cascade: false
-        }))
-	.pipe(cleanCSS())
-	.pipe(rename({suffix: '.min', prefix : ''}))
-	.pipe(gulp.dest('./_styles/'))
-});
+gulp.task('default', ['browser-sync', 'watch']);
 
 
 gulp.task('uglify', function() {
-  gulp.src('./_scripts/*.js')
+ 		return gulp.src('./_scripts/common.js')
+ 		.pipe(babel({
+            presets: ['es2015']
+        }))
     .pipe(uglify())
     .pipe(rename({suffix: '.min', prefix : ''}))
     .pipe(gulp.dest('./_scripts/'))
