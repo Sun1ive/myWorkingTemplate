@@ -1,0 +1,24 @@
+@font-face {
+  font-family: PT Sans;
+  src: url("../_fonts/PT-Sans-regular.ttf");
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: url("../_img/cork-wallet.png");
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
