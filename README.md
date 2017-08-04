@@ -2,6 +2,6 @@
 My template for work (stylus)
 
 
-Usage:
+Usage: <br>
 npm install
 gulp
