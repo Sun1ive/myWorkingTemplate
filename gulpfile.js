@@ -39,6 +39,7 @@ gulp.task('stylus', function () {
 gulp.task('watch', function () {
 	gulp.watch("./_styles/*.styl", ["stylus"]);
 	gulp.watch('./*.html').on('change', browserSync.reload);
+	gulp.watch('./_scripts/*.js', ['uglify']);
 	gulp.watch('./_scripts/*.js').on("change", browserSync.reload);
 
 });
@@ -47,12 +48,12 @@ gulp.task('default', ['browser-sync', 'watch']);
 
 
 gulp.task('uglify', function() {
- 		return gulp.src('./_scripts/common.js')
+ 		return gulp.src('./_scripts/*.js')
  		.pipe(babel({
             presets: ['es2015']
         }))
     .pipe(uglify())
     .pipe(rename({suffix: '.min', prefix : ''}))
-    .pipe(gulp.dest('./_scripts/'))
+    .pipe(gulp.dest('./dist/'))
 });
 
