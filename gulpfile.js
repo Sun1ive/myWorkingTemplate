@@ -29,7 +29,7 @@ gulp.task('stylus', function () {
             browsers: ['last 15 versions'],
             cascade: false
         }))
-	// .pipe(cleanCSS())
+	.pipe(cleanCSS())
 	.pipe(rename({suffix: '.min', prefix : ''}))
 	.pipe(gulp.dest("./_styles/"))
 	.pipe(browserSync.stream());
@@ -49,11 +49,12 @@ gulp.task('default', ['browser-sync', 'watch']);
 
 gulp.task('uglify', function() {
  		return gulp.src('./_scripts/*.js')
- 		.pipe(babel({
+ 	.pipe(plumber())
+ 	.pipe(babel({
             presets: ['es2015']
         }))
-    .pipe(uglify())
-    .pipe(rename({suffix: '.min', prefix : ''}))
-    .pipe(gulp.dest('./dist/'))
+   .pipe(uglify())
+   .pipe(rename({suffix: '.min', prefix : ''}))
+   .pipe(gulp.dest('./dist/'))
 });
 
