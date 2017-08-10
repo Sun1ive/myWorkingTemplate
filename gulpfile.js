@@ -1,13 +1,14 @@
 var gulp 				= require('gulp'),
-	autoprefixer 	= require('gulp-autoprefixer'),
-	browserSync  	= require('browser-sync').create(),
+	autoprefixer 		= require('gulp-autoprefixer'),
+	browserSync  		= require('browser-sync').create(),
 	rename 				= require('gulp-rename'),
 	gcmq 					= require('gulp-group-css-media-queries'),
 	cleanCSS 			= require('gulp-clean-css'),
-	plumber 			= require('gulp-plumber'),
+	plumber 				= require('gulp-plumber'),
 	stylus 				= require('gulp-stylus'),
 	uglify 				= require('gulp-uglify'),
-	babel 				= require('gulp-babel');
+	babel 				= require('gulp-babel'),
+	imagemin 			= require('gulp-imagemin');
 
 
 
@@ -58,3 +59,12 @@ gulp.task('uglify', function() {
    .pipe(gulp.dest('./dist/'))
 });
 
+gulp.task('imagemin', function() {
+	return gulp.src('./_img/*')
+	.pipe(imagemin({
+				interlaced: true,
+   			progressive: true,
+   			optimizationLevel: 5
+ 				}))
+	.pipe(gulp.dest('./_img/')); 
+});
