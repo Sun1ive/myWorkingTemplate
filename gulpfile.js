@@ -8,9 +8,19 @@ var gulp 				= require('gulp'),
 	stylus 				= require('gulp-stylus'),
 	uglify 				= require('gulp-uglify'),
 	babel 				= require('gulp-babel'),
-	imagemin 			= require('gulp-imagemin');
+	imagemin 			= require('gulp-imagemin'),
+	htmlbeautify = require('gulp-html-beautify');
 
+ 
 
+gulp.task('html', function() {
+	var options = {
+   indentSize: 1
+	};
+  return gulp.src('*.html')
+    .pipe(htmlbeautify(options))
+    .pipe(gulp.dest('./dist'))
+});
 
 gulp.task( 'browser-sync', ['stylus'] ,function() {
 		browserSync.init({
@@ -30,7 +40,7 @@ gulp.task('stylus', function () {
             browsers: ['last 15 versions'],
             cascade: false
         }))
-	.pipe(cleanCSS())
+	// .pipe(cleanCSS())
 	.pipe(rename({suffix: '.min', prefix : ''}))
 	.pipe(gulp.dest("./_styles/"))
 	.pipe(browserSync.stream());
