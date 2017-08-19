@@ -20,9 +20,6 @@
     "smart-grid": "^1.1.0",
     "gulp-html-beautify": "^1.0.1"
   },
-  "devDependencies": {},
-    "gulp-html-beautify": "^1.0.1",
-    "gulp-imagemin": "^3.3.0"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
