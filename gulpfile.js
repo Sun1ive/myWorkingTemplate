@@ -8,7 +8,6 @@ var gulp 				= require('gulp'),
 	stylus 				= require('gulp-stylus'),
 	uglify 				= require('gulp-uglify'),
 	babel 				= require('gulp-babel'),
-	imagemin 			= require('gulp-imagemin'),
 	htmlbeautify = require('gulp-html-beautify');
 
  
@@ -67,14 +66,4 @@ gulp.task('uglify', function() {
    .pipe(uglify())
    .pipe(rename({suffix: '.min', prefix : ''}))
    .pipe(gulp.dest('./dist/'))
-});
-
-gulp.task('imagemin', function() {
-	return gulp.src('./img/*')
-	.pipe(imagemin({
-				interlaced: true,
-   			progressive: true,
-   			optimizationLevel: 5
- 				}))
-	.pipe(gulp.dest('./img/')); 
 });
