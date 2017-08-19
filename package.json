@@ -18,14 +18,11 @@
     "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^3.0.0",
     "smart-grid": "^1.1.0",
-<<<<<<< HEAD
     "gulp-html-beautify": "^1.0.1"
   },
   "devDependencies": {},
-=======
     "gulp-html-beautify": "^1.0.1",
     "gulp-imagemin": "^3.3.0"},
->>>>>>> 39e243476922b239a9df85d8736f3c33307c195b
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
