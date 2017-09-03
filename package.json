@@ -29,6 +29,9 @@
   "author": "",
   "license": "ISC",
   "eslintConfig": {
-    "extends": ["airbnb-base"]
+    "extends": ["airbnb-base"],
+    "env": {
+      "jquery": true
+    }
   }
 }
